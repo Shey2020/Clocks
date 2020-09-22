@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head><style>
+body{font-family:Georgia;}
+.digclock{width:260px;height:60px;
+  padding:5px;background-color:darkgray;
+display:flex;position:relative;
+  border-radius:5px;}
+
+.dighr{position:absolute;flex:none;
+  width:80px;height:82%;
+  background-color:DarkOliveGreen;
+  border-radius:3px;
+  font-size:40px;text-align:center;}
+
+.digmin{position:absolute;flex:none;
+  left:95px;width:80px;;height:82%;
+  background-color:DarkOliveGreen;
+  border-radius:3px;
+  font-size:40px;text-align:center;}
+
+.digsc{position:absolute;flex:none;
+  left:185px;width:80px;height:82%;
+  background-color:DarkOliveGreen;
+  border-radius:3px;
+  font-size:40px;text-align:center;}
+</style>
+</head>
+
+<body>
+<div id="digclock" class="digclock">
+  <div id="dighr" class="dighr"></div>
+  <div id="digmin" class="digmin"></div>
+  <div id="digsc" class="digsc"></div>
+</div>
+<script>
+var dighr=document.querySelector("#dighr");
+var digmin = document.querySelector("#digmin");
+var digsc = document.querySelector("#digsc");
+
+function nowtiming(){
+var nowtime= new Date();
+var nowhr=nowtime.getHours();
+var nowmin=nowtime.getMinutes();
+var nowsc=nowtime.getSeconds();
+
+ if (nowhr<10){nowhr="0"+nowhr};
+  if (nowmin<10){nowmin="0"+nowmin};
+  if (nowsc<10){nowsc="0"+nowsc};
+  
+dighr.innerHTML=nowhr;
+digmin.innerHTML=nowmin;
+digsc.innerHTML=nowsc;};
+
+
+setInterval(nowtiming,1000)
+</script>
+</body>
